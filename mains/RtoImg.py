@@ -6,8 +6,8 @@ import time,multiprocessing,os
 def rToImg1(im,w,h,w1,h1,moduleFilePath):
     moduleFileName="R1.module"  # module的文件名字
 
-    imR=Image.new('RGB', (w, h), (255, 255, 255))
-    drawR = ImageDraw.Draw(imR)
+    # imR=Image.new('RGB', (w, h), (255, 255, 255))
+    # drawR = ImageDraw.Draw(imR)
 
     up=() # 上一个像素的值以及替换色【做一个简单的去重过滤，跟上一个一样的就不存到文件，后面还会有专业的全文件去重，这里只是略微减少重复】
 
@@ -16,7 +16,7 @@ def rToImg1(im,w,h,w1,h1,moduleFilePath):
         for y in range(h1):
             cur_pixel = im.getpixel((x, y)) # 获得图像的rgb值
             # print(cur_pixel)
-            drawR.ellipse((x,y,x+1,y+1), fill = (cur_pixel[0],0,0)) # 画像素点
+            # drawR.ellipse((x,y,x+1,y+1), fill = (cur_pixel[0],0,0)) # 画像素点
             if(up!=(cur_pixel[0],cur_pixel)):
                 f.write("%s=%s\n" % (cur_pixel[0],cur_pixel))# 写入文件
                 up=(cur_pixel[0],cur_pixel)
@@ -28,8 +28,8 @@ def rToImg1(im,w,h,w1,h1,moduleFilePath):
 def rToImg2(im,w,h,w1,h1,moduleFilePath):
     moduleFileName="R2.module"  # module的文件名字
 
-    imR=Image.new('RGB', (w, h), (255, 255, 255))
-    drawR = ImageDraw.Draw(imR)
+    # imR=Image.new('RGB', (w, h), (255, 255, 255))
+    # drawR = ImageDraw.Draw(imR)
 
     up=() # 上一个像素的值以及替换色【做一个简单的去重过滤，跟上一个一样的就不存到文件，后面还会有专业的全文件去重，这里只是略微减少重复】
 
@@ -38,7 +38,7 @@ def rToImg2(im,w,h,w1,h1,moduleFilePath):
         for y in range(h1):
             cur_pixel = im.getpixel((w1+x, y)) # 获得图像的rgb值
             # print(cur_pixel)
-            drawR.ellipse((w1+x,y,w1+x+1,y+1), fill = (cur_pixel[0],0,0)) # 画像素点
+            # drawR.ellipse((w1+x,y,w1+x+1,y+1), fill = (cur_pixel[0],0,0)) # 画像素点
             if(up!=(cur_pixel[0],cur_pixel)):
                 f.write("%s=%s\n" % (cur_pixel[0],cur_pixel))# 写入文件
                 up=(cur_pixel[0],cur_pixel)
@@ -50,8 +50,8 @@ def rToImg2(im,w,h,w1,h1,moduleFilePath):
 def rToImg3(im,w,h,w1,h1,moduleFilePath):
     moduleFileName="R3.module"  # module的文件名字
 
-    imR=Image.new('RGB', (w, h), (255, 255, 255))
-    drawR = ImageDraw.Draw(imR)
+    # imR=Image.new('RGB', (w, h), (255, 255, 255))
+    # drawR = ImageDraw.Draw(imR)
 
     up=() # 上一个像素的值以及替换色【做一个简单的去重过滤，跟上一个一样的就不存到文件，后面还会有专业的全文件去重，这里只是略微减少重复】
 
@@ -61,7 +61,7 @@ def rToImg3(im,w,h,w1,h1,moduleFilePath):
         for y in range(h-h1):
             cur_pixel = im.getpixel((x, h1+y)) # 获得图像的rgb值
             # print(cur_pixel)
-            drawR.ellipse((x,h1+y,x+1,h1+y+1), fill = (cur_pixel[0],0,0)) # 画像素点
+            # drawR.ellipse((x,h1+y,x+1,h1+y+1), fill = (cur_pixel[0],0,0)) # 画像素点
             if(up!=(cur_pixel[0],cur_pixel)):
                 f.write("%s=%s\n" % (cur_pixel[0],cur_pixel))# 写入文件
                 up=(cur_pixel[0],cur_pixel)
@@ -72,8 +72,8 @@ def rToImg3(im,w,h,w1,h1,moduleFilePath):
 def rToImg4(im,w,h,w1,h1,moduleFilePath):
     moduleFileName="R4.module"  # module的文件名字
 
-    imR=Image.new('RGB', (w, h), (255, 255, 255))
-    drawR = ImageDraw.Draw(imR)
+    # imR=Image.new('RGB', (w, h), (255, 255, 255))
+    # drawR = ImageDraw.Draw(imR)
 
     up=() # 上一个像素的值以及替换色【做一个简单的去重过滤，跟上一个一样的就不存到文件，后面还会有专业的全文件去重，这里只是略微减少重复】
 
@@ -83,7 +83,7 @@ def rToImg4(im,w,h,w1,h1,moduleFilePath):
         for y in range(h-h1):
             cur_pixel = im.getpixel((w1+x, h1+y)) # 获得图像的rgb值
             # print(cur_pixel)
-            drawR.ellipse((w1+x,h1+y,w1+x+1,h1+y+1), fill = (cur_pixel[0],0,0)) # 画像素点
+            # drawR.ellipse((w1+x,h1+y,w1+x+1,h1+y+1), fill = (cur_pixel[0],0,0)) # 画像素点
             if(up!=(cur_pixel[0],cur_pixel)):
                 f.write("%s=%s\n" % (cur_pixel[0],cur_pixel))# 写入文件
                 up=(cur_pixel[0],cur_pixel)

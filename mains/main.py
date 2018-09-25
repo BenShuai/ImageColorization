@@ -7,8 +7,8 @@ import mains.LtoImg
 
 
 ### 调用多进程进行图片训练
-def main():
-    thisImgSrc='/Users/sunshuai/Desktop/SunShuai/pg.jpg'
+def main(thisImgSrc):
+    # thisImgSrc='/Users/sunshuai/Desktop/SunShuai/pg.jpg'
     im=Image.open(thisImgSrc) #打开的图像对象
 
     w=im.width # 原图的宽
@@ -34,9 +34,14 @@ def main():
 
 
 if __name__=='__main__':
-    ticks = time.time() #运行开始之前，获得当前时间(用来结束的时候获取解析总用时)
+    filesPath='/Users/sunshuai/Documents/硬盘文件夹/手机壁纸/'
+    for (dirpath,dirnames,filenames) in os.walk(filesPath):#访问文件夹下的所有文件
+        for filename in filenames:
+            print(filename)
 
-    main()
+            ticks = time.time() #运行开始之前，获得当前时间(用来结束的时候获取解析总用时)
 
-    ticks2 = time.time() #运行结束之后，获得当前时间
-    print("用时：",ticks2-ticks,"秒")
+            main(filesPath+filename)
+
+            ticks2 = time.time() #运行结束之后，获得当前时间
+            print("单张图用时：",ticks2-ticks,"秒")
