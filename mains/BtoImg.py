@@ -1,3 +1,4 @@
+# author:SunShuai
 ## 将图片转成B通道
 
 from PIL import Image,ImageDraw

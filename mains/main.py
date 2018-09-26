@@ -1,5 +1,7 @@
-from PIL import Image,ImageDraw
-import time,multiprocessing,os
+# author:SunShuai
+# 训练的类 修改 __main__ 中的 filesPath 为你的训练素材的位置
+from PIL import Image
+import time,os
 import mains.RtoImg
 import mains.GtoImg
 import mains.BtoImg
@@ -25,12 +27,10 @@ def main(thisImgSrc):
     else:
         os.makedirs(moduleFilePath) # 不存在就创建
 
-    mains.RtoImg.main(im,w,h,w1,h1,moduleFilePath) # 调用转R通道的方法，将训练数据存储到对应的module
-    mains.GtoImg.main(im,w,h,w1,h1,moduleFilePath) # 调用转G通道的方法，将训练数据存储到对应的module
-    mains.BtoImg.main(im,w,h,w1,h1,moduleFilePath) # 调用转B通道的方法，将训练数据存储到对应的module
-    mains.LtoImg.main(im,w,h,w1,h1,moduleFilePath) # 调用转L通道的方法，将训练数据存储到对应的module
-
-
+    mains.LtoImg.main(im,w,h,w1,h1,moduleFilePath) # 调用转L通道的方法，将训练数据存储到对应的module[灰度图-对应黑白照片]
+    # mains.RtoImg.main(im,w,h,w1,h1,moduleFilePath) # 调用转R通道的方法，将训练数据存储到对应的module[R通道图-对应红色底片照片,需要时开启训练]
+    # mains.GtoImg.main(im,w,h,w1,h1,moduleFilePath) # 调用转G通道的方法，将训练数据存储到对应的module[G通道图-对应绿色底片照片,需要时开启训练]
+    # mains.BtoImg.main(im,w,h,w1,h1,moduleFilePath) # 调用转B通道的方法，将训练数据存储到对应的module[B通道图-对应蓝色底片照片,需要时开启训练]
 
 
 if __name__=='__main__':

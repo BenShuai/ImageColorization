@@ -1,4 +1,5 @@
-# 单进程的方式进行处理
+# author:SunShuai
+# 单进程的方式进行处理【测试本机性能用】
 from PIL import Image,ImageDraw
 import time,multiprocessing,os
 
