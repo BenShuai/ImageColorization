@@ -77,6 +77,8 @@ def loadModule(): # 注：这里是把模型数据存在本地文件，后面可
     print(vlaues)
     print("加载module数据结束用时：",ticks2-ticks,"秒")
 
+    print("开始数据清洗")
+    ticks3 = time.time() #获得当前时间
     for i in range(len(vlaues)):
         # print(vlaues[i])
         dValues=vlaues[i];
@@ -92,13 +94,21 @@ def loadModule(): # 注：这里是把模型数据存在本地文件，后面可
         # print(dValues2)
         vlaues[i]=dValues2
 
+    ticks4 = time.time() #获得当前时间
+    print("数据清洗结束用时：",ticks4-ticks3,"秒")
+
+
+    print("清洗数据结果存储开始")
+    ticks5 = time.time() #获得当前时间
     # print(vlaues)
     f = open(moduleFilePath+'all.module', 'a') # 以追加的方式进行文件写入（文件不存在的时候会创建新的文件）
     for g in range(len(vlaues)):
         dValues=vlaues[i];
         for j in range(len(dValues)):
             f.write("%s=%s\n" % (g,dValues[j]))# 写入文件
-
+    f.close()
+    ticks6 = time.time() #获得当前时间
+    print("清洗数据结果存储结束用时：",ticks6-ticks5,"秒")
 ##############################################################################################################################
 
 
