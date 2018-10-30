@@ -5,7 +5,7 @@ from PIL import Image,ImageDraw
 import time,os,multiprocessing
 
 moduleFilePath='./module/'
-vlaues=[0 for i in range(256)]
+vlaues=[[] for i in range(256)]
 
 ##############################################################################################################################
 
@@ -25,7 +25,17 @@ def loadModule(): # 注：这里是把模型数据存在本地文件，后面可
             # print(lineNum)
             lineNumRgb=(lineNum[1].replace('(','').replace(')','').replace(' ','').replace('\n','')).split(',')
             # print(lineNumRgb)
-            vlaues[int(lineNum[0])]=lineNumRgb
+
+            numTs=0
+            vlen =len(vlaues[int(lineNum[0])])
+            for rgbV in range(vlen):
+                if(vlaues[int(lineNum[0])][rgbV][0]==lineNumRgb[0] and vlaues[int(lineNum[0])][rgbV][1]==lineNumRgb[1] and vlaues[int(lineNum[0])][rgbV][2]==lineNumRgb[2]):
+                    numTs=numTs+1
+                    break
+                pass
+            if(numTs==0):
+                vlaues[int(lineNum[0])].append(lineNumRgb)
+
     finally:
         f.close()
 
@@ -40,7 +50,15 @@ def loadModule(): # 注：这里是把模型数据存在本地文件，后面可
             # print(lineNum)
             lineNumRgb=(lineNum[1].replace('(','').replace(')','').replace(' ','').replace('\n','')).split(',')
             # print(lineNumRgb)
-            vlaues[int(lineNum[0])]=lineNumRgb
+            numTs=0
+            vlen =len(vlaues[int(lineNum[0])])
+            for rgbV in range(vlen):
+                if(vlaues[int(lineNum[0])][rgbV][0]==lineNumRgb[0] and vlaues[int(lineNum[0])][rgbV][1]==lineNumRgb[1] and vlaues[int(lineNum[0])][rgbV][2]==lineNumRgb[2]):
+                    numTs=numTs+1
+                    break
+                pass
+            if(numTs==0):
+                vlaues[int(lineNum[0])].append(lineNumRgb)
     finally:
         f2.close()
 
@@ -55,7 +73,15 @@ def loadModule(): # 注：这里是把模型数据存在本地文件，后面可
             # print(lineNum)
             lineNumRgb=(lineNum[1].replace('(','').replace(')','').replace(' ','').replace('\n','')).split(',')
             # print(lineNumRgb)
-            vlaues[int(lineNum[0])]=lineNumRgb
+            numTs=0
+            vlen =len(vlaues[int(lineNum[0])])
+            for rgbV in range(vlen):
+                if(vlaues[int(lineNum[0])][rgbV][0]==lineNumRgb[0] and vlaues[int(lineNum[0])][rgbV][1]==lineNumRgb[1] and vlaues[int(lineNum[0])][rgbV][2]==lineNumRgb[2]):
+                    numTs=numTs+1
+                    break
+                pass
+            if(numTs==0):
+                vlaues[int(lineNum[0])].append(lineNumRgb)
     finally:
         f3.close()
 
@@ -70,7 +96,15 @@ def loadModule(): # 注：这里是把模型数据存在本地文件，后面可
             # print(lineNum)
             lineNumRgb=(lineNum[1].replace('(','').replace(')','').replace(' ','').replace('\n','')).split(',')
             # print(lineNumRgb)
-            vlaues[int(lineNum[0])]=lineNumRgb
+            numTs=0
+            vlen =len(vlaues[int(lineNum[0])])
+            for rgbV in range(vlen):
+                if(vlaues[int(lineNum[0])][rgbV][0]==lineNumRgb[0] and vlaues[int(lineNum[0])][rgbV][1]==lineNumRgb[1] and vlaues[int(lineNum[0])][rgbV][2]==lineNumRgb[2]):
+                    numTs=numTs+1
+                    break
+                pass
+            if(numTs==0):
+                vlaues[int(lineNum[0])].append(lineNumRgb)
     finally:
         f4.close()
 
@@ -229,6 +263,7 @@ def main(imgPath,vlaues):
 ##############################################################################################################################
 
 if __name__=='__main__':
+    print(range(0))
     loadModule() # 加载模型数据
 
     ticks = time.time() #运行开始之前，获得当前时间(用来结束的时候获取解析总用时)
